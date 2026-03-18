@@ -1,9 +1,8 @@
 name: Run checks and Determinate CI
 
 on:
-  pull_request:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - main
 
