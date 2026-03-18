@@ -22,7 +22,7 @@
 
       flake.templates = {
         default = {
-          path = ./templates/flake;
+          path = ./templates/flakes;
           description = "Nix-flakes template";
         };
       };
