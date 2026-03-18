@@ -12,7 +12,12 @@
   };
 
   outputs =
-    { nixpkgs, flake-utils, fenix, ... }:
+    {
+      nixpkgs,
+      flake-utils,
+      fenix,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
@@ -24,11 +29,11 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          nativeBuildInputs = with pkgs;[
+          nativeBuildInputs = with pkgs; [
             pkg-config
             openssl
           ];
-          packages = with pkgs;[
+          packages = with pkgs; [
             rustToolchain
             rust-analyzer
           ];
