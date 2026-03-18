@@ -25,6 +25,10 @@
           path = ./nix-flakes;
           description = "Nix-flakes template";
         };
+        rust = {
+          path = ./rust;
+          description = "Rust template";
+        };
       };
 
       perSystem =
