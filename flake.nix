@@ -27,43 +27,47 @@
         };
       };
 
-      perSystem = { pkgs, ...}: {
-        devShells.default =
-          let
-            forEachDir = exec: ''
-              for dir in */; do
-                (
-                  cd "''${dir}"
+      perSystem =
+        { pkgs, ... }:
+        {
+          formatter = pkgs.nixfmt;
 
-                  ${exec}
-                )
-              done
-            '';
+          devShells.default =
+            let
+              forEachDir = exec: ''
+                for dir in */; do
+                  (
+                    cd "''${dir}"
 
-            script =
-              name: runtimeInputs: text:
-              pkgs.writeShellApplication {
-                inherit name runtimeInputs text;
-                bashOptions = [
-                  "errexit"
-                  "pipefail"
-                ];
-              };
-          in
-          pkgs.mkShellNoCC {
-            packages = with pkgs;[
-              (script "check" [ nixfmt ] (forEachDir ''
-                echo "checking ''${dir}"
-                nix flake check --all-systems --no-build
-              ''))
-              (script "format" [ nixfmt ] ''
-                git ls-files '*.nix' | xargs nix fmt
-              '')
-              (script "check-formatting" [ nixfmt ] ''
-                git ls-files '*.nix' | xargs nixfmt --check
-              '')
-            ];
-          };
-      };
+                    ${exec}
+                  )
+                done
+              '';
+
+              script =
+                name: runtimeInputs: text:
+                pkgs.writeShellApplication {
+                  inherit name runtimeInputs text;
+                  bashOptions = [
+                    "errexit"
+                    "pipefail"
+                  ];
+                };
+            in
+            pkgs.mkShellNoCC {
+              packages = with pkgs; [
+                (script "check" [ nixfmt ] (forEachDir ''
+                  echo "checking ''${dir}"
+                  nix flake check --all-systems --no-build
+                ''))
+                (script "format" [ nixfmt ] ''
+                  git ls-files '*.nix' | xargs nix fmt
+                '')
+                (script "check-formatting" [ nixfmt ] ''
+                  git ls-files '*.nix' | xargs nixfmt --check
+                '')
+              ];
+            };
+        };
     };
 }
