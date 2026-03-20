@@ -29,6 +29,10 @@
           path = ./rust;
           description = "Rust template";
         };
+        python3 = {
+          path = ./python3;
+          description = "Python3";
+        };
       };
 
       perSystem =
