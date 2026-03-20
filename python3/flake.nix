@@ -1,5 +1,5 @@
 {
-  description = "A basic flake for Python3 + uv";
+  description = "A Python3 flake with using uv";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
