@@ -1,5 +1,5 @@
 {
-  description = "A basic flake for Rust";
+  description = "A Rust flake with using fenix + rust-toolchain.toml";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
