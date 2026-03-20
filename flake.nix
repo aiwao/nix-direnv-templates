@@ -31,7 +31,7 @@
         };
         python3 = {
           path = ./python3;
-          description = "Python3";
+          description = "Python3 template";
         };
       };
 
