@@ -33,6 +33,10 @@
           path = ./python3;
           description = "Python3 template";
         };
+        java21 = {
+          path = ./java21;
+          description = "Java21 template";
+        };
       };
 
       perSystem =
