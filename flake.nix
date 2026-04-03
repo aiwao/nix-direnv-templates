@@ -25,6 +25,10 @@
           path = ./nix-flakes;
           description = "Nix-flakes template";
         };
+        go = {
+          path = ./go;
+          description = "Go template";
+        };
         rust = {
           path = ./rust;
           description = "Rust template";
