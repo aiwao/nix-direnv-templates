@@ -41,6 +41,10 @@
           path = ./java21;
           description = "Java21 template";
         };
+        minecraftClient = {
+          path = ./minecraftClient;
+          description = "Minecraft-client template";
+        };
       };
 
       perSystem =
