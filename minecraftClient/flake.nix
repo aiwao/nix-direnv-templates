@@ -18,23 +18,26 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            gcc
-            
-            jdk21
-            jdt-language-server
-            gradle
-            
-            ncurses
-            patchelf
-            zlib
-            pulseaudio
-            openal
-            pkg-config
-          ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
-            pkgs.udev
-            pkgs.alsa-oss
-          ];
+          packages =
+            with pkgs;
+            [
+              gcc
+
+              jdk21
+              jdt-language-server
+              gradle
+
+              ncurses
+              patchelf
+              zlib
+              pulseaudio
+              openal
+              pkg-config
+            ]
+            ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+              pkgs.udev
+              pkgs.alsa-oss
+            ];
 
           JAVA_HOME = pkgs.jdk21;
 
