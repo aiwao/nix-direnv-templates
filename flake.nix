@@ -53,6 +53,10 @@
           path = ./bun;
           description = "Bun template";
         };
+        docker = {
+          path = ./docker;
+          description = "Docker template";
+        };
       };
 
       perSystem =
