@@ -45,6 +45,10 @@
           path = ./minecraft-client;
           description = "Minecraft-client template";
         };
+        nodejs = {
+          path = ./nodejs;
+          description = "Nodejs template";
+        };
       };
 
       perSystem =
