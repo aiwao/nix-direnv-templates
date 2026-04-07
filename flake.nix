@@ -49,6 +49,10 @@
           path = ./nodejs;
           description = "Nodejs template";
         };
+        bun = {
+          path = ./bun;
+          description = "Bun template";
+        };
       };
 
       perSystem =
