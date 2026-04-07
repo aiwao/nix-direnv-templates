@@ -12,7 +12,6 @@ concurrency:
 
 jobs:
   check:
-    if: ${{ !endsWith(github.event.pull_request.title, '(skip-ci)') }}
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -29,6 +28,7 @@ jobs:
         run: nix develop --command check
 
   determinate-ci:
+    if: ${{ !endsWith(github.event.pull_request.title, '(skip-ci)') }}
     needs: check
     uses: DeterminateSystems/ci/.github/workflows/workflow.yml@main
     permissions:
