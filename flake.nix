@@ -41,8 +41,8 @@
           path = ./java21;
           description = "Java21 template";
         };
-        minecraftClient = {
-          path = ./minecraftClient;
+        minecraft-client = {
+          path = ./minecraft-client;
           description = "Minecraft-client template";
         };
       };
