@@ -15,7 +15,7 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        
+
         cssmodules-language-server = pkgs.buildNpmPackage (finalAttrs: {
           pname = "cssmodules-language-server";
           version = "1.5.2";
