@@ -52,14 +52,8 @@
             pkgs.libsecret
           ];
 
-          dontNpmBuild = true;
-          buildPhase = ''
-            runHook preBuild
-
+          preBuild = ''
             patchShebangs .
-            npm run build
-
-            runHook postBuild
           '';
 
           installPhase = ''
