@@ -57,6 +57,10 @@
           path = ./docker;
           description = "Docker template";
         };
+        web = {
+          path = ./web;
+          description = "Web template";
+        };
       };
 
       perSystem =
