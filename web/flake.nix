@@ -65,10 +65,11 @@
           installPhase = ''
             runHook preInstall
 
-            mkdir -p $out/lib/css-variables-language-server $out/bin
-            cp -r . $out/lib/css-variables-language-server
+            mkdir -p $out/lib $out/bin
+            cp -r node_modules $out/lib
+            cp -r packages $out/lib
 
-            makeWrapper ${pkgs.nodejs}/bin/node $out/bin/index.js --add-flags "$out/lib/css-variables-language-server/packages/css-variables-language-server/dist/index.js"
+            makeWrapper ${pkgs.nodejs}/bin/node $out/bin/index.js --add-flags "$out/lib/packages/css-variables-language-server/dist/index.js"
 
             mv $out/bin/index.js $out/bin/css-variables-language-server
 
