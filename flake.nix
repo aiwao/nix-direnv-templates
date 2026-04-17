@@ -61,6 +61,10 @@
           path = ./web;
           description = "Web template";
         };
+        svelte = {
+          path = ./svelte;
+          description = "Svelte template";
+        };
       };
 
       perSystem =
